@@ -10,7 +10,7 @@ body{
 }
 .container{
     padding: 15px;
-    /* height: 40vh; */
+    height: 55vh;
     width: 20vw;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,40 @@ body{
 #button:hover{
     background-color: rgb(14, 90, 14);
 }
-.getImage{
-    height: 300px;
-    width: 95%;
+.imgBox{
+    max-height: 0px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all 0.1s;
+}
+#qrImage{
+    width: 100px;
+    padding: 10px;
+    height: 100px;
+}
+.imgBox .show-img{
+    max-width: 300px;
+    margin: 10px auto;
+    border: solid rgb(54, 52, 52) 1px;
+}
+.error{
+    animation:shake 0.1s linear 10;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(2px)X
+    }
+    50% {
+        transform: translateX(0px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }

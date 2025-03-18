@@ -8,15 +8,32 @@
 </head>
 <body>
     <div class="container">
-    <h4>Enter the URL or Text:</h4>
-    <input type="text" placeholder="Text or URL" id="text">
-
-    <button id="button">Generate QR</button>
+        <h4>Enter the URL or Text:</h4>
+        <input type="text" placeholder="Text or URL" id="text">
+        <div class="imgBox" ></div>
+            <img id="qrImage" src="">
+        </div>
+        <button id="button" onclick="generateQR()">Generate QR</button>
     </div>
 
-    <script src="script.js">
-let qrText =  document.getElementById("text");
+    <script>
+        let text = document.getElementById("text");
+        let qrImage = document.getElementById("qrImage");
+        let imgBox = document.querySelector(".imgBox");
 
+        function generateQR() {
+            if (text.value.length > 0) {
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + text.value;
+                imgBox.classList.add("show-img");
+            }
+            else{
+                text.classList.add("error");
+                setTimeout(()=>{
+                    text.classList.remove("error");  
+                }, 1000)
+            }
+           
+        }
     </script>
 </body>
 </html>
