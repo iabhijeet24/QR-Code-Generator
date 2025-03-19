@@ -11,7 +11,7 @@
         <h4>Enter the URL or Text:</h4>
         <input type="text" placeholder="Text or URL" id="text">
         <div class="imgBox" >
-            <img id="qrImage" src="">
+            <img id="qrImage">
         </div>
            
         
@@ -34,10 +34,11 @@
                 }, 1000);
 
                 document.querySelector('.container').style.height = "55vh";
-                imgBox.classList.add("show-img");
+                document.querySelector('.imgBox').style.maxHeight = "300px";
 
                 qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(inputValue);
-            } else {
+            } 
+            else {
                 text.classList.add("error");
                 setTimeout(() => {
                     text.classList.remove("error");

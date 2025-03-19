@@ -54,18 +54,14 @@ body{
     max-height: 0px;
     width: 200px;
     overflow: hidden;
+    margin: 10px auto;
     border-radius: 5px;
     transition: all 0.1s;
+    margin: auto;
 }
 #qrImage{
-    width: 100px;
     padding: 10px;
-    height: 100px;
-}
-.imgBox .show-img{
-    max-height: 300px;
-    margin: 10px auto;
-    border: solid rgb(54, 52, 52) 1px;
+    margin: auto;
 }
 .error{
     animation:shake 0.1s linear 10;
