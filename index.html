@@ -10,11 +10,14 @@
     <div class="container">
         <h4>Enter the URL or Text:</h4>
         <input type="text" placeholder="Text or URL" id="text">
-        <div class="imgBox" ></div>
+        <div class="imgBox" >
             <img id="qrImage" src="">
         </div>
+           
+        
         <button id="button" onclick="generateQR()">Generate QR</button>
     </div>
+    
 
     <script>
         let text = document.getElementById("text");
@@ -22,17 +25,24 @@
         let imgBox = document.querySelector(".imgBox");
 
         function generateQR() {
-            if (text.value.length > 0) {
-                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + text.value;
+            let inputValue = text.value.trim(); // Avoid empty spaces being counted
+
+            if (inputValue.length > 0) {
+                button.innerText = "Generating...";
+                setTimeout(() => {
+                    button.innerText = "Generate QR";
+                }, 1000);
+
+                document.querySelector('.container').style.height = "55vh";
                 imgBox.classList.add("show-img");
-            }
-            else{
+
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(inputValue);
+            } else {
                 text.classList.add("error");
-                setTimeout(()=>{
-                    text.classList.remove("error");  
-                }, 1000)
+                setTimeout(() => {
+                    text.classList.remove("error");
+                }, 800);
             }
-           
         }
     </script>
 </body>
